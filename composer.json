@@ -1,0 +1,38 @@
+{
+    "name": "eddy/booking-app",
+    "description": "A web application to allow users to book a boat for different purposes",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+            "database/config.php"
+        ]
+    },
+    "scripts": {
+        "dev": "npx tailwindcss -i ./src/css/input.css -o ./public/css/app.css --watch",
+        "serve": "php -S localhost:3000 -t public",
+        "watch": "npm run dev & live-server public --port=3001 --watch=public --open=public/index.php",
+        "migrate": "php database/schema.php",
+        "migrate:fresh": "php database/drop-schema.php && php database/schema.php"
+    },
+
+    "authors": [
+        {
+            "name": "edibily12",
+            "email": "edibily06@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "illuminate/database": "^12.0@dev",
+        "illuminate/events": "^12.0@dev",
+        "nesbot/carbon": "^3.0@dev",
+      "ext-openssl": "*"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest"
+    }
+}
