@@ -2,6 +2,10 @@
 
 namespace App\Services;
 
+use Twilio\Exceptions\ConfigurationException;
+use Twilio\Exceptions\TwilioException;
+use Twilio\Rest\Client;
+
 class SecurityManager
 {
     public static function isAccountLocked($email) {
@@ -56,6 +60,27 @@ class SecurityManager
         return true;
     }
 
+
+    /**
+     * @throws TwilioException
+     * @throws ConfigurationException
+     */
+    public static function send($code)
+    {
+        $sid    = "AC006f6d47282f2aa8b767167a072eae6c";
+        $token  = "d16ccff9f67e01f63600fed84e97e953";
+        $twilio = new Client($sid, $token);
+
+        $verification_check = $twilio->verify->v2->services("VA5bb68b6e1608697a872013b99066cdc9")
+            ->verificationChecks
+            ->create([
+                    "to" => "+255620826701",
+                    "code" => $code
+                ]
+            );
+
+//        print($verification_check->sid);
+    }
 
 
 

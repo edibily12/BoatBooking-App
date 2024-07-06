@@ -10,11 +10,7 @@ class LockedAccount extends Model
     use SoftDeletes;
     protected $table = 'locked_accounts';
     protected $fillable = [
-        'user_id'
+        'email'
     ];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 }

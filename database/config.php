@@ -3,6 +3,7 @@
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Container\Container;
+use Illuminate\Pagination\Paginator;
 
 $capsule = new Capsule;
 
@@ -20,3 +21,6 @@ $capsule->addConnection([
 $capsule->setEventDispatcher(new Dispatcher(new Container));
 $capsule->setAsGlobal();
 $capsule->bootEloquent();
+
+Paginator::useBootstrap();
+Paginator::useTailwind();

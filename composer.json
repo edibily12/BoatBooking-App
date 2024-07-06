@@ -30,7 +30,10 @@
         "illuminate/database": "^12.0@dev",
         "illuminate/events": "^12.0@dev",
         "nesbot/carbon": "^3.0@dev",
-      "ext-openssl": "*"
+      "ext-openssl": "*",
+        "twilio/sdk": "dev-main",
+        "illuminate/pagination": "^12.0@dev",
+      "ext-json": "*"
     },
     "require-dev": {
         "roave/security-advisories": "dev-latest"

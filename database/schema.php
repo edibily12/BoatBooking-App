@@ -65,7 +65,7 @@ if (!Capsule::schema()->hasTable('logs')) {
 if (!Capsule::schema()->hasTable('locked_accounts')) {
     Capsule::schema()->create('locked_accounts', function ($table) {
         $table->increments('id');
-        $table->foreignIdFor(User::class)->constrained();
+        $table->string('email')->nullable();
         $table->softDeletes();
         $table->timestamps();
     });

@@ -1,15 +1,18 @@
 <?php
 
 use App\Controllers\Auth;
+use App\Controllers\LogsController;
 
 require_once dirname(__DIR__). "/../inc/header.php";
 
 if ((isset($_SESSION['verified']) && $_SESSION['verified'] === true) || $_SESSION['id'] == null) {
+    LogsController::create("trying to access verify page through url while verified.");
     logout();
     redirect("auth/login.php");
 }
 
 if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
+    LogsController::create("trying to access verify page through url while logged in.");
     logout();
     redirect("auth/login.php");
 }

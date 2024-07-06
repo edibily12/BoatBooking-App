@@ -1,17 +1,26 @@
 <?php
 
 use App\Controllers\Auth;
+use App\Controllers\LogsController;
 
 require_once dirname(__DIR__). "/../inc/header.php";
 
 if (isset($_SESSION['verified']) && $_SESSION['verified'] === false) {
+    LogsController::create("trying to access register page through url while not verified");
     redirect("auth/verify.php");
     exit;
 }
 
-//if (isset($_SESSION['login']) && $_SESSION['login'] === true && $_SESSION['role_id'] === 2) {
-//    redirect("user-dashboard.php");
-//    exit;
+if (isset($_SESSION['login']) && $_SESSION['login'] === true && $_SESSION['role_id'] === 3) {
+    LogsController::create("trying to access login page through url while logged in");
+    redirect("dashboard/index.php");
+    exit();
+}
+
+//if (isset($_SESSION['login']) && $_SESSION['login'] === true && $_SESSION['role_id'] === 1) {
+////    $auth->logs("trying to access login page through url while logged in");
+//    redirect("dashboard/admin.php");
+//    exit();
 //}
 
 $oldValues = [

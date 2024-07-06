@@ -1,4 +1,12 @@
-<?php require_once __DIR__ . "/inc/header.php" ?>
+<?php
+
+use App\Controllers\BoatsController;
+
+require_once __DIR__ . "/inc/header.php";
+
+$boats = BoatsController::index();
+
+?>
 
 <section id="home" class="bg-center bg-no-repeat bg-cover bg-[url('/files/images/boats/2.webp')] bg-gray-700 bg-blend-multiply">
     <div class="px-4 mx-auto max-w-screen-xl text-center py-48 lg:py-56">
@@ -63,40 +71,27 @@
     <div class="container mx-auto px-4">
         <h2 class="text-3xl font-semibold text-gray-800 mb-8">Boats Available</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Boat Card 1 -->
-            <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md">
-                <img src="<?= SITE_URL ?>files/images/boats/1.webp" alt="Boat 1" class="w-full h-48 object-cover object-center">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Boat Name 1</h3>
-                    <p class="text-gray-600">$100,000</p>
-                </div>
-            </div>
 
-            <!-- Boat Card 2 -->
-            <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md">
-                <img src="<?= SITE_URL ?>files/images/boats/3.webp" alt="Boat 2" class="w-full h-48 object-cover object-center">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Boat Name 2</h3>
-                    <p class="text-gray-600">$150,000</p>
-                </div>
-            </div>
+            <!-- Boat Card -->
+            <?php if (count($boats) > 0): ?>
+                <?php foreach ($boats as $boat): ?>
+                    <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md">
+                        <img src="<?= SITE_URL ?>files/images/boats/<?= $boat->image ?>" alt="Boat 1" class="w-full h-48 object-cover object-center">
+                        <div class="p-4">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2"><?= $boat->name ?></h3>
+                            <p class="text-gray-600"><?= $boat->capacity ?> People</p>
+                            <p class="text-gray-600"><?= $boat->description ?></p>
+                            <a href="<?= SITE_URL ?>pages/auth/login.php">
+                                <button class="bg-blue-700 my-4 py-2 w-full text-white px-6">Book Now</button>
+                            </a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p class="text-center ">No data found</p>
+            <?php endif; ?>
 
-            <!-- Boat Card 3 -->
-            <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md">
-                <img src="<?= SITE_URL ?>files/images/boats/4.webp" alt="Boat 3" class="w-full h-48 object-cover object-center">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Boat Name 3</h3>
-                    <p class="text-gray-600">$120,000</p>
-                </div>
-            </div>
-            <!-- Boat Card 4 -->
-            <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md">
-                <img src="<?= SITE_URL ?>files/images/boats/5.webp" alt="Boat 4" class="w-full h-48 object-cover object-center">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Boat Name 3</h3>
-                    <p class="text-gray-600">$120,000</p>
-                </div>
-            </div>
+
         </div>
     </div>
 </section>

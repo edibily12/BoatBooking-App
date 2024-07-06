@@ -26,14 +26,13 @@ class User extends Model
         return $this->hasMany(Log::class);
     }
 
-    public function locked()
-    {
-        return $this->hasOne(LockedAccount::class);
-    }
-
     public function bookings()
     {
         return $this->hasMany(Booking::class);
     }
+
+    const ADMIN = 1;
+    const MGR = 2;
+    const USER = 3;
 
 }

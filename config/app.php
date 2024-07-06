@@ -32,3 +32,5 @@ function logout()
     redirect('auth/login.php');
     exit();
 }
+
+
