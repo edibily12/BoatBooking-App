@@ -1,17 +1,1 @@
-localhost
 
-site key:6LfTmQIqAAAAAB5i99ojfUGtToN5aD8ft5PbJET6
-secrete key:6LfTmQIqAAAAALdfsOfhABHoTLZyXbwVoM5R7rm1
-
-
-192.168.1.5
-site key: 6LeqxQkqAAAAAKRrksqYSd2rUnOJQLKgLpXYJ51z
-secrete key: 6LeqxQkqAAAAAEp6nVxarAlrASbOU3SAjeyISbD7
-
-keys
-site key: 6Lf-xgkqAAAAAD8ItsQ37XzLAayLg83b67p8J5gF
-sec key: 6Lf-xgkqAAAAAIZwIf_kg_GfCuLK3SvLcVEZHmZr
-
-
-6LfLyAkqAAAAALR_fv2M9hvkQn7t8-swmVJ2IO1t
-6LfLyAkqAAAAAJtKEHUotIqnzm4XEF56CrU_cfsP
